@@ -5,33 +5,33 @@
     /// IClassFixture will instantiate the constructor once for all tests in the class
     /// "test class as context"-pattern
     /// </summary>
-//    public class ShoppingCartAdapterWithoutIClassFixtureTests
-//    {
-//        private ShoppingCartFixture _fixture;
+    public class ShoppingCartAdapterWithoutIClassFixtureTests
+    {
+        private ShoppingCartFixture _fixture;
 
-//        public ShoppingCartAdapterWithoutIClassFixtureTests()
-//        { 
-//            _fixture = new ShoppingCartFixture();
-//        }
+        public ShoppingCartAdapterWithoutIClassFixtureTests()
+        {
+            _fixture = new ShoppingCartFixture();
+        }
 
-//        [Fact]
-//        public async Task WhenCreatingACustomerInDatabase_ProvidedCustomerWithBasicDetails_CustomerIsNotNull()
-//        {
-//            await _fixture.CreateCustomer();
+        [Fact]
+        public async Task WhenCreatingACustomerInDatabase_ProvidedCustomerWithBasicDetails_CustomerIsNotNull()
+        {
+            await _fixture.CreateCustomer("FirstName", "LastName");
 
-//            var customer = _fixture.WebshopDbContext.Customers.FirstOrDefaultAsync();
+            var customer = _fixture.WebshopDbContext.Customers.FirstOrDefaultAsync();
 
-//            Assert.NotNull(customer);
-//        }
+            Assert.NotNull(customer);
+        }
 
-//        [Fact]
-//        public async Task WhenCreatingACustomerInDatabase_ProvidedSecondCustomerWithBasicDetails_TwoCustomersExist()
-//        {
-//            await _fixture.CreateCustomer("Queens2", "lab2");
+        [Fact]
+        public async Task WhenCreatingACustomerInDatabase_ProvidedSecondCustomerWithBasicDetails_TwoCustomersExist()
+        {
+            await _fixture.CreateCustomer("Queens2", "lab2");
 
-//            var customer = await _fixture.WebshopDbContext.Customers.ToListAsync();
+            var customer = await _fixture.WebshopDbContext.Customers.ToListAsync();
 
-//            Assert.Equal(1, customer.Count);
-//        }
-//    }
+            Assert.Equal(1, customer.Count);
+        }
+    }
 }

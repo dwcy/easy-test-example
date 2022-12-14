@@ -14,10 +14,10 @@
 
         public async Task CreateCustomer(string firstName = "Queens",string lastName = "Lab")
         {
-            await WebshopDbContext.Customers.AddAsync(new Customer()
-            {
-                FirstName = firstName,
-                LastName = lastName
+            await WebshopDbContext.Customers.AddAsync(
+                new Customer() {
+                  FirstName = firstName,
+                  LastName = lastName
             });
 
             await WebshopDbContext.SaveChangesAsync();

@@ -40,6 +40,7 @@ namespace Infrastructure.Persistance.DataContexts
         {
             modelBuilder.Entity<Customer>()
                 .HasOne(c => c.Cart)
+
                 .WithOne(sc => sc.Customer)
                 .HasForeignKey<ShoppingCart>(b => b.CustomerId)
                 .IsRequired(false)
